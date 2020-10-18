@@ -2,7 +2,7 @@
 # plantilla
 <!-- DESCRIPCION DE LA API -->
 <aside class="notice">
-Esta es la plantilla demo para documentar las API de jamar.
+Esta es la plantilla demo para documentar las API de jamar. 
 </aside>
 para documentar necesitaras **MARKDONW** [aqui] (https://www.markdownguide.org/cheat-sheet/) una guia.
 
