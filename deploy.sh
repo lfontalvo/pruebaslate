@@ -77,7 +77,7 @@ parse_args() {
   default_email=${GIT_DEPLOY_EMAIL:-}
 
   #repository to deploy to. must be readable and writable.
-  repo=origin
+  repo=origen
 
   #append commit hash to the end of message by default
   append_hash=${GIT_DEPLOY_APPEND_HASH:-true}
@@ -137,7 +137,7 @@ main() {
 initial_deploy() {
   git --work-tree "$deploy_directory" checkout --orphan $deploy_branch
   git --work-tree "$deploy_directory" add --all
-  commit+push
+  commit_push
 }
 
 incremental_deploy() {
@@ -152,7 +152,7 @@ incremental_deploy() {
   set -o errexit
   case $diff in
     0) echo No changes to files in $deploy_directory. Skipping commit.;;
-    1) commit+push;;
+    1) commit_push;;
     *)
       echo git diff exited with code $diff. Aborting. Staying on branch $deploy_branch so you can debug. To switch back to main, use: git symbolic-ref HEAD refs/heads/main && git reset --mixed >&2
       return $diff
@@ -160,7 +160,7 @@ incremental_deploy() {
   esac
 }
 
-commit+push() {
+commit_push() {
   set_user_id
   git --work-tree "$deploy_directory" commit -m "$commit_message"
 
@@ -210,9 +210,9 @@ filter() {
   sed -e "s|$repo|\$repo|g"
 }
 
-sanitize() {
-  "$@" 2> >(filter 1>&2) | filter
-}
+# sanitize() {
+#   "$@" 2> >(filter 1>&2) | filter
+# }
 
 parse_args "$@"
 
