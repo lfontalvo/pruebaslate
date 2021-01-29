@@ -1,7 +1,7 @@
 ---
 title: API Reference
 
-language_tabs:
+language_tabs: # must be one of https://git.io/vQNgJ
   - shell
   - ruby
   - python
@@ -15,8 +15,6 @@ includes:
   - errors
 
 search: true
-
-code_clipboard: true
 ---
 
 # Introduction
@@ -238,4 +236,3 @@ This endpoint deletes a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to delete
-
